@@ -1,31 +1,34 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Data KTP</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+             fieldset{
+                 background: bisque;
+                 box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2); 
+                max-width: 500px; 
+                margin: auto; 
+                text-align: justify;
+            }
+            h2{
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        <div>TODO write content</div>
-        <from action="/From" method="POST" enctype="multipart/form-data">
-            <label>Nama</label>
-            <input type="text" name="nama">
-            <label>NIM</label>
-            <input type="text" name="NIM">
-            <label>Jurusan</label>
-            <input type="text" name="jurusan">
-            <label>Tanggal</label>
-            <input type="date" name="tanggal">
-            <label>Email</label>
-            <input type="email" name="email">
-            <label>Gambar</label>
-            <input type="file" name="gambar">
-            <input type="submit" value="simpan">
-        </from>
+        <h2>Input Data KTM</h2>
+        
+        <fieldset>
+            <form action="/getData" method="post" enctype="multipart/form-data">
+                Masukkan Nama : <input type="text" name="name"><br><br>
+                Masukkan NIM : <input type="text" name="nim"><br><br>
+                Jurusan : <input type="text" name="jurusan"><br><br>
+                Email : <input type="text" name="email"><br><br>
+                Foto : <input type="file" name="image"  accept="image/png, image/jpg"/><br><br>
+                Tanggal Lahir :<input type="date" name="tanggal"><br><br>
+                <input type="submit" value="Simpan" >
+            </form>
+        </fieldset>
     </body>
 </html>

@@ -24,28 +24,32 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class myController {
     
-    @RequestMapping("/From")
-    public String getDATAKTM(@RequestParam("nama")String name,
-            @RequestParam("NIM")String nim,
-            @RequestParam("jurusan") String jurusan,
-            @RequestParam("email") String email,
-            @RequestParam("gambar")MultipartFile img,
-            @RequestParam("tanggal") @DateTimeFormat (pattern = "yyyy-MM-dd") Date date, Model model) throws IOException
-    {
-        SimpleDateFormat nwTgl = new SimpleDateFormat("dd MMMM yyyy");
-        String tgl = nwTgl.format(date);
+    @RequestMapping("/getData")
+    public String getData(@RequestParam("name") String text,
+                          @RequestParam("image") MultipartFile file,
+                          @RequestParam("tanggal")@DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
+                          @RequestParam("nim") String nim,
+                          @RequestParam("jurusan") String jurusan,
+                          @RequestParam("email") String email,
+                          
+                          Model model) throws IOException{
         
-        String image = Base64.encodeBase64String(img.getBytes());
-        String imge = "data:image/jpeg;base64,".concat(image);
+        SimpleDateFormat tanggal = new SimpleDateFormat("EEEE,dd-MMMM-yyyy");
+        String newTanggal = tanggal.format(date);
         
-        model.addAttribute("nama", name);
-        model.addAttribute("NIM", nim);
+        String blob = Base64.encodeBase64String(file.getBytes());
+        String gambar = "data:image/jpeg;base64,".concat(blob);
+        
+        model.addAttribute("nm", text);
+        model.addAttribute("n", nim);
+        model.addAttribute("mail", email);
         model.addAttribute("jrsn", jurusan);
-        model.addAttribute("emal", email);
-        model.addAttribute("tgl", tgl);
-        model.addAttribute("img", imge);
+        model.addAttribute("tgl", newTanggal);
+        model.addAttribute("img", gambar);
         
         return "halaman";
     }
-    
+
 }
+    
+

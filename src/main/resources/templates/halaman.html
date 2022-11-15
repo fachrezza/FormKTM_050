@@ -6,11 +6,133 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Tampil Data</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: #ffffff;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                font-family: sans-serif;
+              }
+              .login {
+                position: fixed;
+                top: 50%;
+                left: 45%;
+                transform: translate(-30%, -50%);
+                background: bisque;
+                padding: 50px;
+                width: 500px;
+                box-shadow: 0px 0px 1px 3px black;
+                border-radius: 15px;
+              }
+              .login h2 {
+                text-align: center;
+                color: black;
+                font-size: 30px;
+                font-family: sans-serif;
+                letter-spacing: 3px;
+                padding-top: 0;
+                margin-top: -20px;
+              }
+              .box-login {
+                  
+                  
+                justify-content:space-between;
+                margin: 10px;
+                
+              }
+              .box-login p{
+                  text-align: left;
+              }
+   
+      
+              
+             
+              .btn-login {
+                margin-left: 10px;
+                margin-bottom: 20px;
+                background: none;
+                border: 1px solid white;
+                width: 92.5%;
+                padding: 10px;
+                color: white;
+                font-size: 18px;
+                letter-spacing: 3px;
+                cursor: pointer;
+                }
+              .btn-login:hover{
+                background: rgba(12, 30, 15, 0.5);
+              }
+              .bottom {
+                margin-left: 10px;
+                margin-right: 10px;
+                display: flex;
+                justify-content: space-between;
+              }
+              .bottom a {
+                color: white;
+                font-size: 15px;
+                text-decoration: none;
+              }
+              .bottom a:hover {
+              text-decoration: underline;
+              }
+              .gmbr{
+                  float: right;
+                  width: 112px;
+                  height: 145px;
+                  
+                    
+              }
+
+            
+    
+        </style>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="login">
+
+                <h2>Kartu Tanda Mahasiswa</h2>
+                
+                <div class="box-login">
+                    
+                    <img th:src="${img}" class="gmbr"/> 
+                  
+                </div>
+
+                <div class="box-login">
+                    
+                    Nama : <a th:text="${nm}"></a> <br>
+                  
+                </div>
+
+                <div class="box-login">
+                    NIM : <a th:text="${n}"></a> <br>
+                  
+                </div>
+
+
+                <div class="box-login">
+                    Jurusan : <a th:text="${jrsn}"></a> <br>
+                  
+                </div>
+
+                <div class="box-login">
+                    Tanggal Lahir : <a th:text="${tgl}"></a> <br>
+                  
+                </div>
+                
+                <div class="box-login">
+                    Email : <a th:text="${mail}"></a> <br>
+                  
+                </div>
+  
+        </div>
     </body>
 </html>
